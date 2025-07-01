@@ -1,197 +1,355 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>—͟͞Future Toppers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0b0c17, #1e1038, #140912);
-      color: #fff;
-    }
-    header {
-      background: rgba(108, 0, 150, 0.85);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 30px rgba(0, 123, 255, 0.5);
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-    .logo-container img {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(106, 13, 173, 0.8), 0 0 25px rgba(106, 13, 173, 0.5);
-      animation: glowPulse 2s infinite alternate;
-    }
-    @keyframes glowPulse {
-      0% {
-        box-shadow: 0 0 10px rgba(106, 13, 173, 0.6), 0 0 20px rgba(106, 13, 173, 0.4);
-      }
-      100% {
-        box-shadow: 0 0 20px rgba(106, 13, 173, 1), 0 0 30px rgba(106, 13, 173, 0.8);
-      }
-    }
-    .logo-container h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      animation: float 2.5s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-    nav ul li a:hover {
-      color: #00c3ff;
-    }
-    .batch-list {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem 1rem;
-    }
-    .batch-card {
-      background: rgba(15, 10, 30, 0.95);
-      border: 1px solid rgba(255, 0, 102, 0.2);
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
-      overflow: hidden;
-      max-width: 350px;
-      transition: 0.4s ease;
-      backdrop-filter: blur(10px);
-    }
-    .batch-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 25px 45px rgba(0, 123, 255, 0.5);
-    }
-    .batch-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-    .batch-info {
-      padding: 1.5rem;
-    }
-    .stream-tag {
-      background: #ff2768;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 3px;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-    }
-    .batch-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .description {
-      font-size: 0.9rem;
-      color: #bbb;
-      margin-bottom: 1rem;
-    }
-    .enroll-btn {
-      background: linear-gradient(135deg, #ff2768, #6a0dad);
-      color: #fff;
-      padding: 0.6rem 1.3rem;
-      border-radius: 30px;
-      font-weight: 600;
-      text-align: center;
-      display: block;
-      transition: 0.3s ease;
-    }
-    .enroll-btn:hover {
-      background: #6a0dad;
-      transform: scale(1.05);
-    }
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(15, 10, 30, 0.95);
-      border: 1px solid #00c3ff;
-      border-radius: 14px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
-      z-index: 1000;
-      text-align: center;
-    }
-    .popup h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .popup a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: #ff2768;
-      color: #fff;
-      border-radius: 30px;
-      text-decoration: none;
-    }
-    .popup a:hover {
-      background: #6a0dad;
-    }
-    .popup button {
-      margin-top: 1rem;
-      background: #00c3ff;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Future Toppers - Player</title>  
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>  
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+  <script src="https://unpkg.com/feather-icons"></script>  
+  <style>  
+    body {  
+      margin: 0;  
+      background: #121212;  
+      font-family: 'Poppins', sans-serif;  
+    }  
+    #player {  
+      width: 100%;  
+      height: 100vh;  
+      max-height: 100vh;  
+      object-fit: contain;  
+    }  
+    .glow-border {  
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);  
+      animation: glow 2s infinite alternate;  
+    }  
+    @keyframes glow {  
+      from { box-shadow: 0 0 15px rgba(100, 255, 218, 0.3); }  
+      to { box-shadow: 0 0 25px rgba(100, 255, 218, 0.7); }  
+    }  
+  </style>  
+</head>  
+<body>  <!-- Header -->  <div class="w-full fixed top-0 left-0 z-50 px-4 py-3 flex items-center justify-between bg-gradient-to-r from-indigo-700 via-purple-800 to-purple-900 shadow-xl text-white">  
+  <div class="flex items-center space-x-2">  
+    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHsoicvJjmBhA/company-logo_200_200/company-logo_200_200/0/1734597691585/next_toppers_logo?e=2147483647&v=beta&t=v8BGc1q8mtS_xcFTpqz4vOWSuqvuczx9cEH7WueZ1Zw" class="h-10 w-10 rounded-full border-2 border-white glow-border" />  
+    <span class="text-xl font-bold">Future Toppers</span>  
+  </div>  
+  <div class="flex gap-4 items-center">  
+    <span id="qualityLabel" class="text-sm hidden"></span>  
+    <button onclick="changeQuality()" class="hover:text-gray-300"><i data-feather="settings"></i></button>  
+    <button onclick="copyM3U8()" class="hover:text-gray-300"><i data-feather="download"></i></button>  
+  </div>  
+</div>  <!-- Glowing Progress Bar -->  <div class="w-full fixed top-[4rem] z-40 bg-transparent">  
+  <div class="relative w-full h-1">  
+    <div id="progressBar" class="absolute left-0 top-0 h-full bg-red-500 shadow-[0_0_10px_2px_rgba(239,68,68,0.7)] transition-all duration-300 ease-in-out" style="width: 0%;"></div>  
+  </div>  
+</div>  <!-- Video Player -->  <video id="player" controls class="mt-20"></video>
 
-<header>
-  <div class="logo-container">
-    <img src="https%3A%2F%2Fdribbble.com%2Fshots%2F15271783-Topper-Logo&docid=bqF9T06fT9EToM&tbnid=vglCr32Kv6s_hM&vet=12ahUKEwjsuYXK_ZGOAxVaSmwGHSAFC9UQM3oECDMQAA..i&w=752&h=752&hcb=2&ved=2ahUKEwjsuYXK_ZGOAxVaSmwGHSAFC9UQM3oECDMQAA268e7c95ff17608c04e834e05c6d2e79d455c2c8310a2226bffe9940a62dce86" alt="Logo">
-    <h1>—͟͞Future Toppers</h1>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="batch-list">
-  <div class="batch-card">
-    <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/bundle_management/course/401500133113_aarambh%20class%209th%20banner%20app.png" alt="Class 9">
-    <div class="batch-info">
-      <span class="stream-tag">Class 9 New</span>
-      <div class="batch-title">Aarambh 2025-26</div>
-      <p class="description">All subjects covered with live classes, recordings, notes and much more... Enroll now for free and explore.</p>
-      <a href="http://future-toppers.infy.uk/future-toppers-subjects.html" class="enroll-btn">Enroll Now</a>
-      </div>
-      </section>
+<!-- Floating Note Buttons -->  <div class="fixed z-50 bottom-4 right-4 flex flex-col gap-3">  
+  <button onclick="makeNote()" class="bg-purple-700 hover:bg-purple-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 glow-border" title="Make Note">  
+    <i data-feather="edit-2"></i>  
+  </button>  
+  <button onclick="toggleNoteDrawer()" class="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 glow-border" title="View Notes">  
+    <i data-feather="book-open"></i>  
+  </button>  
+</div>  <!-- Notes Drawer -->  <div id="noteDrawer" class="fixed bottom-0 left-0 w-full max-h-[50%] bg-gray-900 text-white overflow-y-auto rounded-t-2xl shadow-lg transform translate-y-full transition-transform duration-300 z-50 p-4">  
+  <div class="flex justify-between items-center mb-4">  
+    <h2 class="text-lg font-semibold">📒 My Notes</h2>  
+    <button onclick="toggleNoteDrawer()" class="text-gray-400 hover:text-white"><i data-feather="x"></i></button>  
+  </div>  
+  <div id="noteList" class="space-y-3"></div>  
+</div>  <script>  
+document.addEventListener("DOMContentLoaded", () => {  
+  feather.replace();  
+  
+  const video = document.getElementById("player");  
+  const progressBar = document.getElementById("progressBar");  
+  const params = new URLSearchParams(window.location.search);  
+  const videoUrl = decodeURIComponent(params.get("url") || "");  
+  
+  const resumeKey = `resume_${videoUrl}`;  
+  const watchKey = `watched_${videoUrl}`;  
+  const completedKey = `completed_${videoUrl}`;  
+  const noteKey = `notes_${videoUrl}`;  
+  let errorShown = false;  
+  
+  if (!videoUrl) {  
+    Swal.fire("Error", "Video URL is required.", "error");  
+    return;  
+  }  
+  
+  // Quality Display  
+  const qualityLabel = document.getElementById("qualityLabel");  
+  const qCode = getQualityFromUrl(videoUrl);  
+  qualityLabel.textContent = `Quality: ${getQualityLabel(qCode)}`;  
+  qualityLabel.classList.remove("hidden");  
+  
+  function loadVideo(url, resumeTime = 0) {  
+    if (Hls.isSupported()) {  
+      const hls = new Hls();  
+      hls.loadSource(url);  
+      hls.attachMedia(video);  
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {  
+        video.play().catch(() => {});  
+        if (resumeTime > 0) {  
+          video.currentTime = resumeTime;  
+        }  
+        // Request fullscreen on play  
+        video.requestFullscreen().catch(() => {});  
+      });  
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {  
+      video.src = url;  
+      if (resumeTime > 0) {  
+        video.currentTime = resumeTime;  
+      }  
+      video.play().catch(() => {});  
+      video.requestFullscreen().catch(() => {});  
+    }  
+  }  
+  
+  const savedTime = parseFloat(localStorage.getItem(resumeKey));  
+  if (savedTime) {  
+    Swal.fire({  
+      title: "Resume Video",  
+      text: `Continue from ${formatTime(savedTime)}?`,  
+      icon: "question",  
+      showCancelButton: true,  
+      confirmButtonText: "Yes",  
+      cancelButtonText: "No",  
+    }).then((res) => {  
+      loadVideo(videoUrl, res.isConfirmed ? savedTime : 0);  
+    });  
+  } else {  
+    loadVideo(videoUrl);  
+  }  
+  
+  setInterval(() => {  
+    if (!isNaN(video.currentTime) && video.duration) {  
+      const percentWatched = ((video.currentTime / video.duration) * 100).toFixed(2);  
+      localStorage.setItem(resumeKey, video.currentTime);  
+      localStorage.setItem(watchKey, percentWatched);  
+      progressBar.style.width = `${percentWatched}%`;  
+  
+      if (percentWatched < 30) {  
+        progressBar.className = "absolute left-0 top-0 h-full bg-red-500 shadow-[0010px2px_rgba(239,68,68,0.7)] transition-all duration-300 ease-in-out";  
+      } else if (percentWatched < 70) {  
+        progressBar.className = "absolute left-0 top-0 h-full bg-yellow-400 shadow-[0010px2px_rgba(251,191,36,0.7)] transition-all duration-300 ease-in-out";  
+      } else {  
+        progressBar.className = "absolute left-0 top-0 h-full bg-green-500 shadow-[0010px2px_rgba(34,197,94,0.7)] transition-all duration-300 ease-in-out";  
+      }  
+  
+      if (percentWatched >= 100 && !localStorage.getItem(completedKey)) {  
+        localStorage.setItem(completedKey, "true");  
+        Swal.fire({  
+          toast: true,  
+          icon: "success",  
+          title: "🎉 Video Completed!",  
+          position: "top-end",  
+          showConfirmButton: false,  
+          timer: 2000  
+        });  
+      }  
+    }  
+  }, 5000);  
+  
+  function formatTime(seconds) {  
+    const h = Math.floor(seconds / 3600);  
+    const m = Math.floor((seconds % 3600) / 60);  
+    const s = Math.floor(seconds % 60);  
+    return `${h > 0 ? h + ":" : ""}${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;  
+  }  
+  
+  window.copyM3U8 = () => {  
+    navigator.clipboard.writeText(videoUrl).then(() => {  
+      Swal.fire("Copied!", "Download Link has been copied to clipboard.", "success");  
+    });  
+  };  
+  
+  window.changeQuality = () => {  
+    Swal.fire({  
+      title: "Select Quality",  
+      input: "radio",  
+      inputOptions: {  
+        "index1": "240p",  
+        "index2": "360p",  
+        "index3": "480p",  
+        "index4": "720p"  
+      },  
+      inputValidator: (value) => {  
+        if (!value) return "You need to choose a quality!";  
+      }  
+    }).then((result) => {  
+      if (result.isConfirmed) {  
+        const newQuality = result.value;  
+        const newUrl = videoUrl.replace(/index_\d\.m3u8/, `${newQuality}.m3u8`);  
+        const time = video.currentTime;  
+  
+        Swal.fire({  
+          title: `Change to ${getQualityLabel(newQuality)}?`,  
+          text: "Are you sure?",  
+          showCancelButton: true,  
+          confirmButtonText: "Yes"  
+        }).then((res) => {  
+          if (res.isConfirmed) {  
+            window.location.href = `${window.location.pathname}?url=${encodeURIComponent(newUrl)}&resume=${time}`;  
+          }  
+        });  
+      }  
+    });  
+  };  
+  
+  function getQualityFromUrl(url) {  
+    const match = url.match(/index_(\d)\.m3u8/);  
+    return match ? `index_${match[1]}` : "";  
+  }  
+  
+  function getQualityLabel(code) {  
+    return {  
+      "index1": "240p",  
+      "index2": "360p",  
+      "index3": "480p",  
+      "index4": "720p"  
+    }[code] || "Unknown";  
+  }  
+  
+  // Note System  
+  window.makeNote = () => {  
+    const currentTime = video.currentTime;  
+    const existingNotes = JSON.parse(localStorage.getItem(noteKey) || "[]");  
+    video.pause();  
+  
+    Swal.fire({  
+      title: "Take a Note",  
+      input: "textarea",  
+      inputLabel: `Timestamp: ${formatTime(currentTime)}`,  
+      inputPlaceholder: "Write your notes here...",  
+      showCancelButton: true,  
+      confirmButtonText: "Save",  
+      preConfirm: (note) => {  
+        if (!note.trim()) return "Notes cannot be empty.";  
+      }  
+    }).then((res) => {  
+      if (res.isConfirmed) {  
+        existingNotes.push({  
+          id: Date.now(),  
+          time: currentTime,  
+          timestamp: formatTime(currentTime),  
+          text: res.value.trim()  
+        });  
+        localStorage.setItem(noteKey, JSON.stringify(existingNotes));  
+        loadNotes();  
+        Swal.fire("Saved!", "Your note was saved.", "success");  
+      }  
+    });  
+  };  
+  
+  window.loadNotes = () => {  
+    const notes = JSON.parse(localStorage.getItem(noteKey) || "[]");  
+    const list = document.getElementById("noteList");  
+    list.innerHTML = "";  
+  
+    if (notes.length === 0) {  
+      list.innerHTML = '<p class="text-gray-400 text-sm">No notes yet.</p>';  
+      return;  
+    }  
+  
+    notes.forEach(note => {  
+      const item = document.createElement("div");  
+      item.className = "bg-gray-800 p-3 rounded-lg shadow flex justify-between items-start";  
+      item.innerHTML = `  
+        <div class="flex-1">  
+          <p class="text-sm text-gray-300 mb-1">⏱ <span class="font-semibold">${note.timestamp}</span></p>  
+          <p class="text-sm">${note.text}</p>  
+        </div>  
+        <div class="flex gap-2 ml-3">  
+          <button onclick="editNote(${note.id})" class="text-yellow-400 hover:text-yellow-300" title="Edit"><i data-feather="edit-3"></i></button>  
+          <button onclick="deleteNote(${note.id})" class="text-red-500 hover:text-red-400" title="Delete"><i data-feather="trash-2"></i></button>  
+        </div>  
+      `;  
+      list.appendChild(item);  
+    });  
+    feather.replace();  
+  };  
+  
+  window.editNote = (id) => {  
+    const notes = JSON.parse(localStorage.getItem(noteKey) || "[]");  
+    const note = notes.find(n => n.id === id);  
+    if (!note) return;  
+  
+    Swal.fire({  
+      title: "Edit Note",  
+      input: "textarea",  
+      inputValue: note.text,  
+      inputLabel: `Timestamp: ${note.timestamp}`,  
+      showCancelButton: true,  
+      confirmButtonText: "Update",  
+      preConfirm: (value) => {  
+        if (!value.trim()) return "Note cannot be empty.";  
+      }  
+    }).then((res) => {  
+      if (res.isConfirmed) {  
+        note.text = res.value.trim();  
+        localStorage.setItem(noteKey, JSON.stringify(notes));  
+        loadNotes();  
+        Swal.fire("Updated", "Note updated successfully", "success");  
+      }  
+    });  
+  };  
+  
+  window.deleteNote = (id) => {  
+    let notes = JSON.parse(localStorage.getItem(noteKey) || "[]");  
+    notes = notes.filter(n => n.id !== id);  
+    localStorage.setItem(noteKey, JSON.stringify(notes));  
+    loadNotes();  
+  };  
+  
+  window.toggleNoteDrawer = () => {  
+    const drawer = document.getElementById("noteDrawer");  
+    drawer.classList.toggle("translate-y-0");  
+    drawer.classList.toggle("translate-y-full");  
+    loadNotes();  
+  };  
+  
+  loadNotes();  
+  
+  // Error handler  
+  video.addEventListener("error", () => {  
+    const error = video.error;  
+    if (!errorShown && error && (error.code === 3 || error.code === 4)) {  
+      errorShown = true;  
+      Swal.fire({  
+        icon: "warning",  
+        title: "Video Playback Error",  
+        text: "This video might not support the selected quality. Please try switching to another quality.",  
+        confirmButtonText: "Change Quality",  
+        confirmButtonColor: "#6366f1"  
+      }).then((result) => {  
+        if (result.isConfirmed) {  
+          changeQuality();  
+        }  
+      });  
+    }  
+  });  
+});  
+</script>  
+<!-- <!-- Telegram Popup -->
 <script>
-  window.onload = function() {
-    document.getElementById('telegramPopup').style.display = 'block';
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  feather.replace();
+  Swal.fire({
+    title: '📢 Join Our Telegram Channel!',
+    html: `
+      <div class="space-y-3">
+        <p>Stay updated with latest Future Toppers content:</p>
+        <a href="https://t.me/aarambhbatch9for9th" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded inline-block">Join Channel</a><br>
+      </div>
+    `,
+    icon: 'info',
+    confirmButtonText: 'Close',
+    confirmButtonColor: '#6366f1'
+  });
+});
 </script>
 
 </body>
