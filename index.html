@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>—͟͞Future Toppers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0b0c17, #1e1038, #140912);
+      color: #fff;
+    }
+    header {
+      background: rgba(108, 0, 150, 0.85);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 30px rgba(0, 123, 255, 0.5);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .logo-container img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(106, 13, 173, 0.8), 0 0 25px rgba(106, 13, 173, 0.5);
+      animation: glowPulse 2s infinite alternate;
+    }
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 10px rgba(106, 13, 173, 0.6), 0 0 20px rgba(106, 13, 173, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(106, 13, 173, 1), 0 0 30px rgba(106, 13, 173, 0.8);
+      }
+    }
+    .logo-container h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      animation: float 2.5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover {
+      color: #00c3ff;
+    }
+    .batch-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+    .batch-card {
+      background: rgba(15, 10, 30, 0.95);
+      border: 1px solid rgba(255, 0, 102, 0.2);
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+      overflow: hidden;
+      max-width: 350px;
+      transition: 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+    .batch-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 45px rgba(0, 123, 255, 0.5);
+    }
+    .batch-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .batch-info {
+      padding: 1.5rem;
+    }
+    .stream-tag {
+      background: #ff2768;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .batch-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .description {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 1rem;
+    }
+    .enroll-btn {
+      background: linear-gradient(135deg, #ff2768, #6a0dad);
+      color: #fff;
+      padding: 0.6rem 1.3rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      transition: 0.3s ease;
+    }
+    .enroll-btn:hover {
+      background: #6a0dad;
+      transform: scale(1.05);
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(15, 10, 30, 0.95);
+      border: 1px solid #00c3ff;
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+      z-index: 1000;
+      text-align: center;
+    }
+    .popup h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .popup a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #ff2768;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+    .popup a:hover {
+      background: #6a0dad;
+    }
+    .popup button {
+      margin-top: 1rem;
+      background: #00c3ff;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="https%3A%2F%2Fdribbble.com%2Fshots%2F15271783-Topper-Logo&docid=bqF9T06fT9EToM&tbnid=vglCr32Kv6s_hM&vet=12ahUKEwjsuYXK_ZGOAxVaSmwGHSAFC9UQM3oECDMQAA..i&w=752&h=752&hcb=2&ved=2ahUKEwjsuYXK_ZGOAxVaSmwGHSAFC9UQM3oECDMQAA268e7c95ff17608c04e834e05c6d2e79d455c2c8310a2226bffe9940a62dce86" alt="Logo">
+    <h1>—͟͞Future Toppers</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="batch-list">
+  <div class="batch-card">
+    <img src="https://dxixtlyravvxx.cloudfront.net/540/admin_v1/bundle_management/course/401500133113_aarambh%20class%209th%20banner%20app.png" alt="Class 9">
+    <div class="batch-info">
+      <span class="stream-tag">Class 9 New</span>
+      <div class="batch-title">Aarambh 2025-26</div>
+      <p class="description">All subjects covered with live classes, recordings, notes and much more... Enroll now for free and explore.</p>
+      <a href="http://future-toppers.infy.uk/future-toppers-subjects.html" class="enroll-btn">Enroll Now</a>
+      </div>
+      </section>
+<script>
+  window.onload = function() {
+    document.getElementById('telegramPopup').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
